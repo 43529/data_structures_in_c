@@ -41,10 +41,25 @@ int ListLength(SqList* L) {
 //}
 //int NextElem(L, cur e, &next e) {
 //}
-//int ListInsert(&L, i, e) {
-//}
-//int ListDelete(&L, i, &e) {
-//}
+int ListInsert(SqList* L, int i, int e) {
+    if((*L).length == LIST_INIT_SIZE ){
+        printf("容量不足！\n");
+        exit(1); 
+    }
+    int length = (*L).length;
+    for(int index=length-1;index>i;index--){
+        *((*L).elem+index-1) = *((*L).elem+index);
+    }
+    *((*L).elem+i) = e;
+    (*L).length++;
+}
+int ListDelete(SqList* L, int i) {
+    int length = (*L).length;
+    for(int index=length-1;index>i;index--){
+        *((*L).elem+index-1) = *((*L).elem+index);
+    }
+    (*L).length;
+}
 //int ListTraverse(L, visit()) {
 //}
 //void union(List &La, List Lb) {
